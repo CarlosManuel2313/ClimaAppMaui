@@ -1,0 +1,35 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ClimaAppMaui.ViewModels"
+             x:Class="ClimaAppMaui.MainPage">
+
+
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="AliceBlue" Offset="0.0" />
+            <GradientStop Color="LightGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    <VerticalStackLayout Padding="20">
+
+        <Entry Placeholder="Ciudad" Text="{Binding Ciudad}" />
+
+        <Button Text="Buscar Clima" Command="{Binding BuscarClimaCommand}"
+                BackgroundColor="CadetBlue"/>
+
+        <Label Text="{Binding Weather.name}" FontSize="24" HorizontalOptions="Center" />
+
+        <Label Text="{Binding Weather.weather[0].description}" FontSize="18" />
+
+        <Label Text="{Binding Weather.main.temp, StringFormat='Temperatura: {0} °C'}" />
+        <Label Text="{Binding Weather.main.humidity, StringFormat='Humedad: {0}%'}" />
+
+        <Image Source="{Binding Weather.weather[0].icon, Converter={StaticResource IconConverter}}" HeightRequest="100"/>
+
+        <Button Text="Ver Detalle" Clicked="OnVerDetalleClicked" 
+                BackgroundColor="CadetBlue"/>
+
+    </VerticalStackLayout>
+</ContentPage>

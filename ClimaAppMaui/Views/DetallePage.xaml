@@ -1,0 +1,22 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaAppMaui.Views.DetallePage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="AliceBlue" Offset="0.0" />
+            <GradientStop Color="LightGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <VerticalStackLayout Padding="20">
+        
+        <Label Text="{Binding name}" FontSize="30"
+               HorizontalOptions="Center"/>
+        <Label Text="{Binding weather[0].description}" FontSize="24"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding main.temp, StringFormat='Temp: {0} °C'}" 
+               HorizontalOptions="Center"/>
+        <Label Text="{Binding main.humidity, StringFormat='Humedad: {0}%'}" 
+               HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+</ContentPage>
